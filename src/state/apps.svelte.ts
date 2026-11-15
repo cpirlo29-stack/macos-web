@@ -6,6 +6,7 @@ export const apps = $state({
 	open: {
 		wallpapers: false,
 		finder: true,
+		safari: false,
 		vscode: false,
 		calculator: false,
 		appstore: false,
@@ -21,6 +22,7 @@ export const apps = $state({
 	z_indices: {
 		wallpapers: 0,
 		finder: 0,
+		safari: 0,
 		vscode: 0,
 		calculator: 0,
 		appstore: 0,
@@ -35,6 +37,7 @@ export const apps = $state({
 	fullscreen: {
 		wallpapers: false,
 		finder: false,
+		safari: false,
 		vscode: false,
 		calculator: false,
 		appstore: false,
