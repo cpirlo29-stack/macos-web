@@ -10,7 +10,11 @@
 	} = $props();
 </script>
 
-{#if app_id === 'calendar'}
+{#if app_id === 'system-preferences'}
+	{#await import('./SystemSettings/SystemSettings.svelte') then { default: SystemSettings }}
+		<SystemSettings />
+	{/await}
+{:else if app_id === 'calendar'}
 	{#await import('./Calendar/Calendar.svelte') then { default: Calendar }}
 		<Calendar />
 	{/await}
