@@ -6,6 +6,7 @@
 
 	const { app_id }: { app_id: AppID } = $props();
 	const catalogue: { id: AppID; name: string; description: string; icon: string; category: string }[] = [
+		{ id: 'safari', name: 'Safari', description: 'Browse websites, search the web and save bookmarks.', icon: 'safari', category: 'Productivity' },
 		{ id: 'calculator', name: 'Calculator', description: 'Quick calculations and percentages.', icon: 'calculator', category: 'Utilities' },
 		{ id: 'calendar', name: 'Calendar', description: 'Keep track of dates and events.', icon: 'calendar', category: 'Productivity' },
 		{ id: 'system-preferences', name: 'System Settings', description: 'Personalize appearance, glass and accessibility.', icon: 'system-preferences', category: 'System' },
