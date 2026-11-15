@@ -31,7 +31,7 @@ const vscode = create_app_config({
 const finder = create_app_config({
 	title: 'Finder',
 	resizable: true,
-	should_open_window: false,
+	should_open_window: true,
 });
 
 const systemPreferences = create_app_config({
