@@ -28,6 +28,10 @@ export const preferences = persisted('macos:preferences', {
 	} as WallpaperSettings,
 });
 
+// Backfill defaults for preferences saved by earlier versions.
+preferences.liquid_glass ??= true;
+preferences.glass_blur ??= 18;
+
 $effect.root(() => {
 	$effect(() => {
 		const { classList, style } = document.body;
