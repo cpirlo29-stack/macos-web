@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { AppID } from '🍎/state/apps.svelte';
+	import type { AppID } from '🍎/state/apps.svelte'; 
 
 	const {
 		app_id,
@@ -13,6 +13,10 @@
 {#if app_id === 'finder'}
 	{#await import('./Finder/Finder.svelte') then { default: Finder }}
 		<Finder />
+	{/await}
+{:else if app_id === 'safari'}
+	{#await import('./Safari/Safari.svelte') then { default: Safari }}
+		<Safari />
 	{/await}
 {:else if app_id === 'system-preferences'}
 	{#await import('./SystemSettings/SystemSettings.svelte') then { default: SystemSettings }}
