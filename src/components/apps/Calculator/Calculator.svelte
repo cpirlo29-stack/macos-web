@@ -5,6 +5,7 @@
 	import PlusMinus from '~icons/majesticons/plus-minus-2';
 	import Division from '~icons/ph/divide-bold';
 	import Multiply from '~icons/uil/multiply';
+	import { apps } from '🍎/state/apps.svelte.ts';
 
 	let display = $state('0');
 	let stored = $state<number | null>(null);
@@ -69,15 +70,27 @@
 		if (display !== '0' && display !== 'Error') display = display.startsWith('-') ? display.slice(1) : '-' + display;
 	}
 	function handleKeydown(event: KeyboardEvent) {
+		if (apps.active !== 'calculator' || event.altKey || event.ctrlKey || event.metaKey) return;
+
+		const target = event.target;
+		if (
+			target instanceof HTMLElement &&
+			(target.isContentEditable || target.closest('input, textarea, select, button, [contenteditable="true"]'))
+		) return;
+
+		let handled = true;
 		if (/^[0-9]$/.test(event.key)) inputDigit(event.key);
 		else if (event.key === '.') inputDecimal();
-		else if (event.key === 'Enter' || event.key === '=') { event.preventDefault(); equals(); }
+		else if (event.key === 'Enter' || event.key === '=') equals();
 		else if (event.key === 'Escape' || event.key === 'Backspace') clear();
 		else if (event.key === '+') chooseOperation('+');
 		else if (event.key === '-') chooseOperation('−');
 		else if (event.key === '*') chooseOperation('×');
-		else if (event.key === '/') { event.preventDefault(); chooseOperation('÷'); }
+		else if (event.key === '/') chooseOperation('÷');
 		else if (event.key === '%') percent();
+		else handled = false;
+
+		if (handled) event.preventDefault();
 	}
 </script>
 
