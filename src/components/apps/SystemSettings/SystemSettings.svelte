@@ -14,6 +14,12 @@
 	];
 
 	const colorNames = Object.keys(colors) as (keyof typeof colors)[];
+
+	function setTheme(scheme: 'light' | 'dark') {
+		// A manual choice takes precedence over dynamic wallpaper scheduling.
+		preferences.wallpaper.canControlTheme = false;
+		preferences.theme.scheme = scheme;
+	}
 </script>
 
 <section class="settings-window">
@@ -46,11 +52,11 @@
 				<section class="group">
 					<h2>Appearance</h2>
 					<div class="theme-options">
-						<button class:chosen={preferences.theme.scheme === 'light'} onclick={() => (preferences.theme.scheme = 'light')}>
+						<button class:chosen={preferences.theme.scheme === 'light'} onclick={() => setTheme('light')}>
 							<span class="theme-preview light-preview"><b></b><i></i></span>
 							<span>Light</span>
 						</button>
-						<button class:chosen={preferences.theme.scheme === 'dark'} onclick={() => (preferences.theme.scheme = 'dark')}>
+						<button class:chosen={preferences.theme.scheme === 'dark'} onclick={() => setTheme('dark')}>
 							<span class="theme-preview dark-preview"><b></b><i></i></span>
 							<span>Dark</span>
 						</button>
