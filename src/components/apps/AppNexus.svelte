@@ -10,7 +10,11 @@
 	} = $props();
 </script>
 
-{#if app_id === 'system-preferences'}
+{#if app_id === 'finder'}
+	{#await import('./Finder/Finder.svelte') then { default: Finder }}
+		<Finder />
+	{/await}
+{:else if app_id === 'system-preferences'}
 	{#await import('./SystemSettings/SystemSettings.svelte') then { default: SystemSettings }}
 		<SystemSettings />
 	{/await}
