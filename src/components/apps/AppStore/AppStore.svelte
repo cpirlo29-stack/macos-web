@@ -6,12 +6,12 @@
 
 	const { app_id }: { app_id: AppID } = $props();
 	const catalogue: { id: AppID; name: string; description: string; icon: string; category: string }[] = [
-		{ id: 'calculator', name: 'Calculator', description: 'Quick calculations and percentages.', icon: '🧮', category: 'Utilities' },
-		{ id: 'calendar', name: 'Calendar', description: 'Keep track of dates and events.', icon: '📅', category: 'Productivity' },
-		{ id: 'system-preferences', name: 'System Settings', description: 'Personalize appearance, glass and accessibility.', icon: '⚙️', category: 'System' },
-		{ id: 'wallpapers', name: 'Wallpapers', description: 'Choose a desktop background.', icon: '🖼️', category: 'Personalization' },
-		{ id: 'vscode', name: 'VS Code', description: 'Open the online code editor.', icon: '💻', category: 'Developer Tools' },
-		{ id: 'purus-twitter', name: 'About the Developer', description: 'Learn about the original project creator.', icon: '👨‍💻', category: 'Information' },
+		{ id: 'calculator', name: 'Calculator', description: 'Quick calculations and percentages.', icon: 'calculator', category: 'Utilities' },
+		{ id: 'calendar', name: 'Calendar', description: 'Keep track of dates and events.', icon: 'calendar', category: 'Productivity' },
+		{ id: 'system-preferences', name: 'System Settings', description: 'Personalize appearance, glass and accessibility.', icon: 'system-preferences', category: 'System' },
+		{ id: 'wallpapers', name: 'Wallpapers', description: 'Choose a desktop background.', icon: 'wallpapers', category: 'Personalization' },
+		{ id: 'vscode', name: 'VS Code', description: 'Open the online code editor.', icon: 'vscode', category: 'Developer Tools' },
+		{ id: 'purus-twitter', name: 'About the Developer', description: 'Learn about the original project creator.', icon: 'purus-twitter', category: 'Information' },
 	];
 	let query = $state('');
 	let category = $state('All');
@@ -38,7 +38,7 @@
 		<div class="app-grid">
 			{#each filtered as app}
 				<article class="app-card">
-					<div class="app-icon">{app.icon}</div>
+					<img class="app-icon" src="{import.meta.env.BASE_URL}app-icons/{app.icon}/256.webp" alt="{app.name} app icon" />
 					<div class="app-copy"><strong>{app.name}</strong><small>{app.category}</small><p>{app.description}</p></div>
 					<button onclick={() => openApp(app.id)}>{apps.open[app.id] ? 'Open' : 'Get'}</button>
 				</article>
