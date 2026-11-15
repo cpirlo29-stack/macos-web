@@ -30,7 +30,7 @@
 		user-select: none;
 
 		background-color: hsla(var(--system-color-light-hsl), 0.3);
-		backdrop-filter: blur(25px);
+		backdrop-filter: blur(var(--glass-blur, 25px));
 
 		border-radius: 0.5rem;
 
