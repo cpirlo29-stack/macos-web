@@ -105,3 +105,9 @@ button {
 ::-webkit-scrollbar-thumb:active {
 	background-color: #444;
 }
+
+/* Liquid Glass can be disabled globally from System Settings. */
+body:not(.liquid-glass) * {
+	backdrop-filter: none !important;
+	-webkit-backdrop-filter: none !important;
+}
