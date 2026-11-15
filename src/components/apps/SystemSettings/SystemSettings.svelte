@@ -69,7 +69,7 @@
 					<h2>Liquid Glass</h2>
 					<div class="setting-row">
 						<div><strong>Use Liquid Glass</strong><small>Apply translucent surfaces and background blur across the desktop.</small></div>
-						<button class="switch" class:on={preferences.liquid_glass} role="switch" aria-checked={preferences.liquid_glass} onclick={() => (preferences.liquid_glass = !preferences.liquid_glass)}><span></span></button>
+						<button class="switch" class:on={preferences.liquid_glass} role="switch" aria-label="Use Liquid Glass" aria-checked={preferences.liquid_glass} onclick={() => (preferences.liquid_glass = !preferences.liquid_glass)}><span></span></button>
 					</div>
 					<div class="setting-row range-row" class:muted={!preferences.liquid_glass}>
 						<div><strong>Glass blur</strong><small>Adjust the strength of the glass effect.</small></div>
@@ -94,7 +94,7 @@
 					<h2>Motion</h2>
 					<div class="setting-row">
 						<div><strong>Reduce motion</strong><small>Limit animated transitions and movement.</small></div>
-						<button class="switch" class:on={preferences.reduced_motion} role="switch" aria-checked={preferences.reduced_motion} onclick={() => (preferences.reduced_motion = !preferences.reduced_motion)}><span></span></button>
+						<button class="switch" class:on={preferences.reduced_motion} role="switch" aria-label="Reduce motion" aria-checked={preferences.reduced_motion} onclick={() => (preferences.reduced_motion = !preferences.reduced_motion)}><span></span></button>
 					</div>
 				</section>
 			{:else}
