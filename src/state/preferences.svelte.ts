@@ -15,6 +15,8 @@ export type Theme = {
 
 export const preferences = persisted('macos:preferences', {
 	reduced_motion: matchMedia('(prefers-reduced-motion)').matches,
+	liquid_glass: true,
+	glass_blur: 18,
 	theme: {
 		scheme: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
 		primaryColor: 'blue',
@@ -28,22 +30,16 @@ export const preferences = persisted('macos:preferences', {
 
 $effect.root(() => {
 	$effect(() => {
-		// Color scheme
-		const { classList } = document.body;
+		const { classList, style } = document.body;
 		classList.remove('light', 'dark');
 		classList.add(preferences.theme.scheme);
+		classList.toggle('liquid-glass', preferences.liquid_glass);
+		style.setProperty('--glass-blur', `${preferences.glass_blur}px`);
 
-		// Primary color
 		const colorObj = colors[preferences.theme.primaryColor][preferences.theme.scheme];
-		document.body.style.setProperty('--system-color-primary', `hsl(${colorObj.hsl})`);
-		document.body.style.setProperty('--system-color-primary-hsl', `${colorObj.hsl}`);
-		document.body.style.setProperty(
-			'--system-color-primary-contrast',
-			`hsl(${colorObj.contrastHsl})`,
-		);
-		document.body.style.setProperty(
-			'--system-color-primary-contrast-hsl',
-			`${colorObj.contrastHsl}`,
-		);
+		style.setProperty('--system-color-primary', `hsl(${colorObj.hsl})`);
+		style.setProperty('--system-color-primary-hsl', `${colorObj.hsl}`);
+		style.setProperty('--system-color-primary-contrast', `hsl(${colorObj.contrastHsl})`);
+		style.setProperty('--system-color-primary-contrast-hsl', `${colorObj.contrastHsl}`);
 	});
 });
