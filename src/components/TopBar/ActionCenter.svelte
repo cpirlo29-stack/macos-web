@@ -195,7 +195,7 @@
 			top: 0;
 
 			z-index: -1;
-			backdrop-filter: blur(12px);
+			backdrop-filter: blur(var(--glass-blur, 12px));
 		}
 	}
 

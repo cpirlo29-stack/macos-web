@@ -135,7 +135,7 @@
 
 			border: inherit;
 
-			backdrop-filter: blur(10px);
+			backdrop-filter: blur(var(--glass-blur, 10px));
 
 			position: absolute;
 			top: 0;
