@@ -66,7 +66,7 @@
 		<main>
 			<div class="search-row"><input bind:value={search} placeholder="Search this Mac" aria-label="Search files" /></div>
 			{#if creating}
-				<form class="create-row" onsubmit={createFolder}><input bind:value={new_folder} placeholder="Folder name" aria-label="Folder name" autofocus /><button type="submit">Create</button><button type="button" onclick={() => (creating = false)}>Cancel</button></form>
+				<form class="create-row" onsubmit={createFolder}><input bind:value={new_folder} placeholder="Folder name" aria-label="Folder name" /><button type="submit">Create</button><button type="button" onclick={() => (creating = false)}>Cancel</button></form>
 			{/if}
 			{#if notice}<p class="notice" role="status">{notice}</p>{/if}
 			<div class="file-grid">
