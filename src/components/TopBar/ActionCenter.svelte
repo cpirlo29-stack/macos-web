@@ -15,21 +15,11 @@
 	import ActionCenterSurface from './ActionCenterSurface.svelte';
 	import ActionCenterTile from './ActionCenterTile.svelte';
 
-	let {
-		is_theme_warning_dialog_open: _is_theme_warning_dialog_open = $bindable(),
-	}: { is_theme_warning_dialog_open: boolean } = $props();
-
 	let containerEl: HTMLElement;
 
 	function toggleTheme() {
-		if (
-			wallpapers_config[preferences.wallpaper.id].type === 'dynamic' &&
-			preferences.wallpaper.canControlTheme
-		) {
-			_is_theme_warning_dialog_open = true;
-			return;
-		}
-
+		// Manual selection disables the dynamic wallpaper's automatic theme schedule.
+		preferences.wallpaper.canControlTheme = false;
 		preferences.theme.scheme = preferences.theme.scheme === 'light' ? 'dark' : 'light';
 	}
 
