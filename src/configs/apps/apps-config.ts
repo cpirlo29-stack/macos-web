@@ -28,6 +28,13 @@ const vscode = create_app_config({
 	width: 800,
 });
 
+const safari = create_app_config({
+	title: 'Safari',
+	resizable: true,
+	height: 650,
+	width: 1050,
+});
+
 const finder = create_app_config({
 	title: 'Finder',
 	resizable: true,
@@ -64,6 +71,7 @@ const appstore = create_app_config({
 
 export const apps_config = {
 	finder,
+	safari,
 	wallpapers,
 	calculator,
 	calendar,
